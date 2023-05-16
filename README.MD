@@ -1,9 +1,21 @@
 <div align="center">
     <h1>COMANDO PARA DOCKER</h1>
-		<hr>
 </div>
 
+### mostrar la versión de Docker
+```bash
+docker –version
+```
 
+### mostrar la ayuda de Docker
+```bash
+docker --help
+```
+
+### mostrar información de Docker
+```bash
+docker info
+```
 
 ### Creación de una imagen
 
@@ -16,6 +28,11 @@ docker pull [node:18.14.1]
 ```
 
 Borrar una imagen (Ejem: docker image rm [node:latest]) o borrar todas la imagenes:
+
+
+
+
+
 ```bash
 docker images rm [name image]
 ```
@@ -59,8 +76,11 @@ Listar los contenedores existentes, aun que no esten desplegados
 ```bash
 docker ps -a
 ```
-
-Para borrar un contenedor
+Para borrar un contenedor por CONTAINER ID
+```bash
+docker rm 9b6343d3b5a0
+```
+Para borrar un contenedor por nombre customizado
 ```bash
 docker rm [name custom]
 ```
@@ -68,12 +88,17 @@ Para listar los contenedores existente
 ```bash
 Docker container ls
 ```
+Detener un contenedor con el ID de contenedor o por nombre .
+```bash
+docker stop 09ca6feb6efc
+```
+```bash
+docker stop [name custom]
+```
 Ejecutar la imagen creada de docker versión large
 ```bash
 docker build --no-cache --progress=plain -t ang-app .
 ```
-
-
 Ejecutar la imagen creada de docker versión short
 ```bash
 docker build -t [name image] .
