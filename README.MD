@@ -141,3 +141,7 @@ Para eliminar una red personalizada
 ```bash
 docker network rm [custom-name]
 ```
+Para saber version del docker compose:
+```bash
+docker-compose -v
+```
