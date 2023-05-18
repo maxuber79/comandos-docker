@@ -108,6 +108,8 @@ Iniciar o ejecutar la imagen por el puerto configurado, 8080:80/tcp el primer pu
 ```bash
 docker run -d -it -p 8080:80/tcp [name image] .
 ```
+nota: `.` es la ruta donde me encuentro
+
 Quedar escuchando los logs que emite la imagen del proyecto
 ```bash
 docker logs --follow [monguito | ID container]
@@ -119,7 +121,23 @@ docker logs --follow [monguito | ID container]
 - **`-it`** - interactivo (stdin) + tty (pseudo terminal).
 - **`-p 8080:80/tcp`** - Asignar los puertos de la imagen segun criterios personalizados.
 - **`--name [custom name]`** - Agregar un nombre al contenedor.
-
+- **`--network [custom name]`** - Este flag es opcional y es para asignar un red enpecifico para que se comunique con los ocntenedores entre si.
 ```bash
 docker run --name [custom name] -p 8080:80/tcp  -d [name image]
+```
+
+##Comando docker network, para configuración de redes, la ide es que los contenedore se comuniquen entre si.
+
+Listar todas la redes que tiene configurado docker
+```bash
+docker network ls
+```
+Para crear una red personalizada
+```bash
+docker network create [custom-name]
+```
+
+Para eliminar una red personalizada
+```bash
+docker network rm [custom-name]
 ```

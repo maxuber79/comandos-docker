@@ -1,0 +1,11 @@
+### STAGE 1: Build ###
+FROM node:12.7-alpine AS build
+RUN apk update && apk add git
+RUN git clone https://github.com/wkrzywiec/aston-villa-app.git
+WORKDIR /aston-villa-app
+RUN npm install
+RUN npm run build --prod
+
+### STAGE 2: Run ###
+FROM nginx:1.17.1-alpine
+COPY --from=build /aston-villa-app/dist/aston-villa-app /usr/share/nginx/html

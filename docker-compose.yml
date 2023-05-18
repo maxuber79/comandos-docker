@@ -1,0 +1,15 @@
+# A = anfitrion C = contendor
+version: "3.9"
+services:
+  miapp:
+    build: .
+    ports:
+      - "3000:3000"      
+    links:
+      - monguito
+  myback:
+    image: mongo
+    ports:
+      - "8080A:80C"
+    environment:
+      - name=value
