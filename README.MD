@@ -31,7 +31,7 @@ docker images rm --all
 ```
 Listar las images de docker
 ```bash
-docker images
+docker image ls
 ```
 
 ```bash
@@ -71,8 +71,16 @@ d75e61fcad1e   docker-gs-ping   "/docker-gs-ping"   41 seconds ago   Up 40 secon
 
 Listar los contenedores existentes, aun que no esten desplegados
 ```bash
-docker ps -a
+docker ls -a
 ```
+
+Arrancar un contenedor existente, ejemplo de un contenedor de MariaDB.
+```bash
+docker container run -d -p 3306:3306 --name world-db -e MARIADB_USER=example-user -e MARIADB_PASSWORD=user-password -e MARIADB_ROOT_PASSWORD=root-secret-password -e MARIADB_DATABASE=world-db mariadb:jammy
+```
+
+
+
 Para borrar un contenedor por CONTAINER ID
 ```bash
 docker rm 9b6343d3b5a0
@@ -85,7 +93,7 @@ Para listar los contenedores existente
 ```bash
 Docker container ls
 ```
-Detener un contenedor con el ID de contenedor o por nombre .
+Detener un contenedor con el ID, se puede usar los 3 primeros caracteres del contenedor o por nombre .
 ```bash
 docker stop 09ca6feb6efc
 ```
