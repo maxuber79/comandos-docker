@@ -100,22 +100,35 @@ docker stop 09ca6feb6efc
 ```bash
 docker stop [name custom]
 ```
-Ejecutar una imagen con sus contenedores de docker versión large
+Ejecutar un archivo `Dockerfile` versión large
 ```bash
 docker build --no-cache --progress=plain -t ang-app .
 ```
+Ejecutar un `Dockerfile` con sus contenedores de docker versión short
+```bash
+docker build -t [name image] . 
+```
+
+```bash
+docker build -t angular-project:lastest .
+```
+```bash
+docker build -t angular-project:lastest .
+```
+
 Ejecutar una imagen con sus contenedores especificando memoria y cpu a ocupar
 ```bash
 docker container run --cpus="2" --memory="500m" -p 8080:80/tcp [name image]
 ```
-Ejecutar una imagen con sus contenedores de docker versión short
-```bash
-docker build -t [name image] .
-```
+
 Iniciar o ejecutar la imagen por el puerto configurado, 8080:80/tcp el primer puerto es el que se asigna segun tus criterios, el seguno puerto es el que viene por defecto, en mi caso por ngix.config:
 ```bash
-docker run -d -it -p 8080:80/tcp [name image] .
+docker run -d -it -p 8080:80/tcp [name image]
 ```
+```bash
+docker run -dp 80:80 my-angular-project:prod
+```
+
 nota: `.` es la ruta donde me encuentro
 
 Quedar escuchando los logs que emite la imagen del proyecto
@@ -131,9 +144,11 @@ docker logs --follow [monguito | ID container]
 - **`--name [custom name]`** - Agregar un nombre al contenedor.
 - **`--network [custom name]`** - Este flag es opcional y es para asignar un red enpecifico para que se comunique con los ocntenedores entre si.
 ```bash
-docker run --name [custom name] -p 8080:80/tcp  -d [name image]
+docker run --name [custom name] -d  -p 8080:80/tcp  -d [name image]
 ```
-
+```bash
+docker run -d -p 4200:80/tcp angular-project:lastest
+```
 ##Comando docker network, para configuración de redes, la ide es que los contenedore se comuniquen entre si.
 
 Listar todas la redes que tiene configurado docker
