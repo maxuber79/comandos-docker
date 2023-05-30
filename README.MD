@@ -113,7 +113,7 @@ docker build -t [name image] .
 docker build -t angular-project:lastest .
 ```
 ```bash
-docker build -t angular-project:lastest .
+docker build -t angular-project::v1.0.0 .
 ```
 
 Ejecutar una imagen con sus contenedores especificando memoria y cpu a ocupar
@@ -144,7 +144,10 @@ docker logs --follow [monguito | ID container]
 - **`--name [custom name]`** - Agregar un nombre al contenedor.
 - **`--network [custom name]`** - Este flag es opcional y es para asignar un red enpecifico para que se comunique con los ocntenedores entre si.
 ```bash
-docker run --name [custom name] -d  -p 8080:80/tcp  -d [name image]
+docker run --name [custom-name] -d -p 8080:80/tcp [name-image]
+```
+```bash
+docker run --name [custom-name] -d -p 4200:80/tcp angular-project:lastest
 ```
 ```bash
 docker run -d -p 4200:80/tcp angular-project:lastest
